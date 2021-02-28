@@ -2,40 +2,40 @@ CREATE DATABASE Optus;
 
 USE Optus;
 
-CREATE TABLE Artista
+CREATE TABLE Artistas
 (
 	idArtista	INT PRIMARY KEY IDENTITY
 	,Nome		VARCHAR(200) NOT NULL
 );
 
-CREATE TABLE Album
+CREATE TABLE Albuns
 (
 	idAlbum				INT PRIMARY KEY IDENTITY
-	,idArtista			INT FOREIGN KEY REFERENCES Artista(idArtista)
+	,idArtista			INT FOREIGN KEY REFERENCES Artistas(idArtista)
 	,Titulo				VARCHAR(200) NOT NULL
 	,DataLancamento		DATE
 	,Localizacao		VARCHAR(200)
 	,QtsMinutos			INT NOT NULL
-	,Ativo				INT
+	,Ativo				TINYINT
 );
 
-CREATE TABLE Estilo
+CREATE TABLE Estilos
 (
 	idEstilo	INT PRIMARY KEY IDENTITY
 	,Nome		VARCHAR(200) NOT NULL
 );
 
-CREATE TABLE AlbumEstilo
+CREATE TABLE AlbumEstilos
 (
-	idAlbum		INT FOREIGN KEY REFERENCES Album(idAlbum)
-	,idEstilo	INT FOREIGN KEY REFERENCES Estilo(idEstilo)
+	idAlbum		INT FOREIGN KEY REFERENCES Albuns(idAlbum)
+	,idEstilo	INT FOREIGN KEY REFERENCES Estilos(idEstilo)
 );
 
-CREATE TABLE Usuario
+CREATE TABLE Usuarios
 (
 	idUsuario	INT PRIMARY KEY IDENTITY
 	,Nome		VARCHAR(200) NOT NULL
 	,Email		VARCHAR(200) NOT NULL
 	,Senha		VARCHAR(200) NOT NULL
-	,Permissao	TINYINT
+	,Permissao	VARCHAR(200) NOT NULL
 );
