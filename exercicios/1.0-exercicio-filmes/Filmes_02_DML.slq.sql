@@ -3,14 +3,11 @@
 USE Filmes;
 
 INSERT INTO Generos (Nome)
-VALUES		('Ação')
-		   ,('Romance');
+VALUES		('Comédia');
 
-INSERT INTO Filmes (Titulo, IdGenero)
-VALUES		('Rambo', 1)
-		   ,('Vingadores', 1)
-		   ,('Ghost', 2)
-		   ,('Diario de uma paixão', 2);
+INSERT INTO Filmes (Titulo)
+VALUES		('Homem-Aranha')
+		   ,('Eu sou a Lenda')
 
 UPDATE Generos
 SET Nome = 'Aventura'
