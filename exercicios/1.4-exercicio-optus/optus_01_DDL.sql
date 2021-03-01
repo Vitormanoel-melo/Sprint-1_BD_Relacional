@@ -1,3 +1,4 @@
+
 CREATE DATABASE Optus;
 
 USE Optus;
@@ -16,7 +17,7 @@ CREATE TABLE Albuns
 	,DataLancamento		DATE
 	,Localizacao		VARCHAR(200)
 	,QtsMinutos			INT NOT NULL
-	,Ativo				TINYINT
+	,Ativo				INT NOT NULL
 );
 
 CREATE TABLE Estilos
