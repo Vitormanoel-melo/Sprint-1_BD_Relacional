@@ -26,7 +26,7 @@ WHERE   Clinica.idClinica = Veterinario.idClinica;
 -- listar todas as raças que começam com a letra S
 
 SELECT Raca.Nome FROM Raca
-WHERE Raca.Nome LIKE 'P%';
+WHERE Raca.Nome LIKE 'S%';
 
 
 -- listar todos os tipos de pet que terminam com a letra O
