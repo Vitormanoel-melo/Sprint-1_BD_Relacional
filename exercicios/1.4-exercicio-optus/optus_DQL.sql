@@ -34,10 +34,10 @@ AND Usuarios.Senha = 12345;
 -- listar todos os álbuns ativos, mostrando o nome do artista e os estilos do álbum
 
 SELECT Albuns.Titulo, Artistas.Nome, Estilos.Nome AS Estilo FROM Albuns
-LEFT JOIN Artistas
+INNER JOIN Artistas
 ON Albuns.idArtista = Artistas.idArtista
-LEFT JOIN AlbumEstilos
+INNER JOIN AlbumEstilos
 ON AlbumEstilos.idAlbum = Albuns.idAlbum
-LEFT JOIN Estilos
+INNER JOIN Estilos
 ON Estilos.idEstilo = AlbumEstilos.idEstilo
 WHERE Albuns.Ativo = 1;
