@@ -24,19 +24,34 @@ GO
 
 
 -- Converteu a data de nascimento do usuário para o formato (mm-dd-yyyy) na exibição
-SELECT nome ,CONVERT (VARCHAR(10), dataNascimento, 101) AS DataNascimento FROM pacientes
+SELECT nome ,CONVERT (VARCHAR(10), dataNascimento, 101) AS DataNascimento FROM usuarios
+INNER JOIN pacientes
+ON usuarios.idUsuario = pacientes.idUsuario
 GO
 
 
 -- Criou uma função para retornar a quantidade de médicos de uma determinada especialidade
-CREATE FUNCTION qtdMedicos(@idEspecialidade INT)
-RETURNS TABLE
+CREATE FUNCTION teste1(@idEspecialidade INT)
+RETURNS INT
 AS
-RETURN(
-	SELECT nome FROM medicos
+BEGIN
+	DECLARE @especialidade VARCHAR(100)
+		   ,@quantidade INT
+
+	SELECT @quantidade = COUNT(nome) FROM medicos
 	WHERE medicos.idEspecialidade = @idEspecialidade
-)
+
+	RETURN @quantidade
+END
 GO
 
-SELECT COUNT(nome) AS QtdMedicos FROM QtdMedicos(2);
+SELECT dbo.teste1(16) AS numero_medicos;
 GO
+
+
+-- Criou uma função para que retorne a idade do usuário a partir de uma determinada stored procedure
+CREATE PROCEDURE teste
+AS
+	SELECT nome, DATEPART(YEAR, DATEADD(YEAR, -1, GETDATE())) - DATEPART(YEAR, dataNascimento) FROM pacientes
+
+EXEC teste;
