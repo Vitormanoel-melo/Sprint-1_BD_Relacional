@@ -50,8 +50,8 @@ GO
 
 
 -- Criou uma função para que retorne a idade do usuário a partir de uma determinada stored procedure
-CREATE PROCEDURE teste
+CREATE PROCEDURE idade
 AS
-	SELECT nome, DATEPART(YEAR, DATEADD(YEAR, -1, GETDATE())) - DATEPART(YEAR, dataNascimento) FROM pacientes
+	SELECT nome, DATEPART(YEAR, DATEADD(YEAR, -1, GETDATE())) - DATEPART(YEAR, dataNascimento) AS Idade FROM pacientes
 
-EXEC teste;
+EXEC idade;
