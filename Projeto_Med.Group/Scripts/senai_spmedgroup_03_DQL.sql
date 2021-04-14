@@ -31,7 +31,7 @@ GO
 
 
 -- Criou uma função para retornar a quantidade de médicos de uma determinada especialidade
-CREATE FUNCTION teste1(@idEspecialidade INT)
+CREATE FUNCTION QtdMedicos(@idEspecialidade INT)
 RETURNS INT
 AS
 BEGIN
@@ -45,7 +45,7 @@ BEGIN
 END
 GO
 
-SELECT dbo.teste1(16) AS numero_medicos;
+SELECT dbo.QtdMedicos(16) AS numero_medicos;
 GO
 
 
